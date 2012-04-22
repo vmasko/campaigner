@@ -9,6 +9,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20120422120446) do
+
+  create_table "campaigns", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "type"
+    t.string   "status"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "plannings", :force => true do |t|
+    t.integer  "campaign_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "num_sent"
+    t.decimal  "expected_response", :precision => 8, :scale => 2
+    t.integer  "expected_revenue"
+    t.integer  "budgeted_cost"
+    t.integer  "actual_cost"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
