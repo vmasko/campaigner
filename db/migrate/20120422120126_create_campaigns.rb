@@ -5,7 +5,7 @@ class CreateCampaigns < ActiveRecord::Migration
       t.text :description
       t.string :type
       t.string :status
-      t.boolean :active
+      t.boolean :active, :default => true
 
       t.timestamps
     end

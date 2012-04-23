@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Campaigner</title>
+  <%= stylesheet_link_tag    "application", :media => "all", :cache => true %>
+  <%= javascript_include_tag "application" %>
+</head>
+<body>
+	<header>Campaigner</header>
+	<% flash.each do |name, msg| %>
+		<%= content_tag :div, msg, :id => "flash_#{name}" %>
+	<% end %>
+
+	<content>
+		<%= yield %>
+	</content>
+</body>
+	<%= debug(params) if Rails.env.development? %>
+</html>

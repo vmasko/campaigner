@@ -1,0 +1,22 @@
+<% fields_for @campaign.build_planning do |f| %>
+	<%= f.label :start_date %>
+	<%= f.text_field :start_date %>
+
+	<%= f.label :expected_revenue %>
+	<%= f.text_field :expected_revenue %></br>
+
+	<%= f.label :end_date %>
+	<%= f.text_field :end_date %>
+
+	<%= f.label :budgeted_cost %>
+	<%= f.text_field :budgeted_cost %></br>
+
+	<%= f.label :num_sent %>
+	<%= f.text_field :num_sent %>
+
+	<%= f.label :actual_cost %>
+	<%= f.text_field :actual_cost %></br>
+
+	<%= f.label :expected_response %>
+	<%= f.text_field :expected_response %></br>
+<% end %>

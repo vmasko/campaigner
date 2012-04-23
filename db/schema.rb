@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20120422120446) do
     t.text     "description"
     t.string   "type"
     t.string   "status"
-    t.boolean  "active"
+    t.boolean  "active",      :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(:version => 20120422120446) do
     t.integer  "campaign_id"
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "num_sent"
-    t.decimal  "expected_response", :precision => 8, :scale => 2
+    t.integer  "num_sent",                                        :default => 0
+    t.decimal  "expected_response", :precision => 8, :scale => 2, :default => 0.0
     t.integer  "expected_revenue"
     t.integer  "budgeted_cost"
     t.integer  "actual_cost"
