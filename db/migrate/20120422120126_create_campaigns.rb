@@ -1,7 +1,7 @@
 class CreateCampaigns < ActiveRecord::Migration
   def self.up
     create_table :campaigns do |t|
-      t.string :name
+      t.string :name, :uniqueness => true
       t.text :description
       t.string :type
       t.string :status

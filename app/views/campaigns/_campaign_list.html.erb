@@ -1,0 +1,18 @@
+<table id="campaign_list">
+	<tr>
+		<thead id="campaign_list_header">
+		<th>Name</th>
+		<th>Status</th>
+		<th>Date</th>
+		</thead>
+	<% @campaigns.each do |campaign| %>
+		<tr>
+			<% if campaign.active? %>
+			<td><%= link_to "#{campaign.name}", campaign %><%= link_to "Edit", edit_campaign_path(campaign.id),
+							:class => "edit_link" %></td>
+			<td><%= campaign.status %></td>
+			<td><%= campaign.planning.start_date if !campaign.planning.nil? %>
+			<% end %>
+		</tr>
+	<% end %>
+</table>

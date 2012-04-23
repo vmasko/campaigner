@@ -5,16 +5,111 @@ body {
 
 header {
 	margin: auto;
-	padding: 20px 10px 20px 10px;
-	width: 900px;
-	font-size: 50px;
-	background-color: green;
+	padding: 20px 10px 20px 20%;
+	width: auto;
+	font-size: 30px;
+	border-bottom-width: 3px;
+	border-bottom-color: #193770;
+	border-bottom-style: solid;
 }
 
 content {
 	margin: auto;
 	padding: 10px 10px 10px 10px;
-	width: 900px;
-	background-color: gray;
+	width: 60%;
+	min-width: 350px;
 	display: block;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.app_header {
+	color: #FFF;
+	background-color: #193770;
+	border-radius: 10px;
+	text-decoration: none;
+	padding: 10px 10px 10px 10px;
+}
+
+input {
+	margin-bottom: 10px;
+}
+
+select {
+	margin-bottom: 10px;
+	margin-right: 30px;
+}
+
+textarea {
+	margin-bottom: 20px;
+}
+
+fieldset {
+	border: none;
+}
+.campaign_info {
+	margin-bottom: 40px;
+}
+
+legend {
+	margin-bottom: 10px;
+	padding: 5px 0px 5px 5px;
+	width: 100%;
+	color: #FFF;
+	background-color: #193770;
+	border-radius: 5px;
+}
+
+.campaign_submit {
+	display: inline;
+}
+.haha {
+	display: inline;
+}
+
+.edit_link {
+	padding-left: 5px;
+	font-size: xx-small;
+	vertical-align: top;
+	text-decoration: none;
+}
+
+#flash_success {
+	margin: 15px auto 15px auto;
+	padding: 10px 10px 10px 10px;
+	width: 50%;
+	color: white;
+	background-color: #454545;
+	border: 2px solid #FFF;
+	border-radius: 10px;
+}
+
+#flash_error {
+	width: 500px;
+	height: 25px;
+	font-size: 20px;
+	background-color: #FFA3A3;
+	color: #5E3131;
+	border: 3px solid #5E3131;
+	margin: 10px auto 10px auto;
+	padding: 5px 5px 5px 5px;
+	border-radius: 10px;
+	text-align: center;
+}
+
+#campaign_list td {
+	border: 1px solid;
+	background-color: white;
+}
+
+#campaign_list {
+	color: #193770;
+	background-color: #193770;
+	width: 100%;
+	border-radius: 5px;
+}
+
+#campaign_list_header {
+	color: #FFF;
+	background-color: #193770;
 }

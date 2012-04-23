@@ -1,20 +1,26 @@
+<legend>Campaign information (* — required information):</legend>
+
 <% form_for @campaign do |f| %>
-	<%= f.label :name %></br>
-	<%= f.text_field :name %></br>
+	<fieldset class="campaign_info">
+		<%= f.label :name, "*Campaign name" %></br>
+		<%= f.text_field :name %></br>
 
-	<%= f.label :description %></br>
-	<%= f.text_area :description %></br>
+		<%= f.label :description %></br>
+		<%= f.text_area :description, :rows => 4, :cols => 43 %></br>
 
-	<%= f.label :type %></br>
-	<%= f.select :type, Campaign::CAMPAIGN_TYPES, :prompt => "Please, select campaign type" %></br>
+		<%= f.label :active %>
+		<%= f.check_box :active %></br>
 
-	<%= f.label :status %></br>
-	<%= f.select :status, Campaign::CAMPAIGN_STATUSES, :prompt => "Please, select campaign status" %></br>
+		<%= f.label :type %>
+		<%= f.select :type, Campaign::CAMPAIGN_TYPES, :prompt => "Please, select campaign type" %>
 
-	<%= f.label :active %>
-	<%= f.check_box :active %></br>
-
+		<%= f.label :status %>
+		<%= f.select :status, Campaign::CAMPAIGN_STATUSES, 
+								 :prompt => "Please, select campaign status" %></br>
+	</fieldset>
+	
 	<%= render 'planning_fields' %>
 
 	<%= f.submit "Save" %>
 <% end %>
+<%= button_to "Cancel", root_path %>
