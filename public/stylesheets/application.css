@@ -1,7 +1,6 @@
 body {
 	margin: 0px;
 	padding: 0px;
-	color:
 }
 
 header {
@@ -17,6 +16,7 @@ header {
 content {
 	margin: auto;
 	padding: 10px 10px 10px 10px;
+	color: #102347;
 	width: 60%;
 	min-width: 350px;
 	display: block;
@@ -133,12 +133,17 @@ legend {
 	margin-top: 40px;
 	float: right;
 }
+
 #campaign_sort a {
 	padding: 2px 2px 2px 2px;
 	color: white;
 	background-color: #193770;
 	text-decoration: none;
 	border-radius: 4px;
+}
+
+#campaign_planning {
+	margin-bottom: 15px;
 }
 
 .inline_buttons {

@@ -1,0 +1,23 @@
+<legend>Planning:</legend>
+
+<% if @planning.nil? %>
+	<p>Planning details were not provided</p>
+<% else %>
+	<table id="campaign_planning">
+		<tr>
+			<td><b>Start date:</b> <%= @planning.start_date %></td>
+			<td><b>Expected revenue:</b> <%= number_to_currency(@planning.expected_revenue, :precision => 1) %></td>
+		</tr>
+		<tr>
+			<td><b>End date:</b> <%= @planning.end_date %></td>
+			<td><b>Budgeted cost:</b> <%= number_to_currency(@planning.budgeted_cost, :precision => 1) %></td>
+		</tr>
+		<tr>
+			<td><b>Num sent:</b> <%= @planning.num_sent %></td>
+			<td><b>Actual cost:</b> <%= number_to_currency(@planning.actual_cost, :precision => 1) %></td>
+		</tr>
+		<tr>
+			<td><b>Expected response (%)</b>: <%= @planning.expected_response %></td>
+		</tr>
+	</table>
+<% end %>

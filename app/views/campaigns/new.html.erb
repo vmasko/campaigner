@@ -1,7 +1,13 @@
 <% @title = "New campaign" %>
 
 <h1>New campaign</h1>
+<p>Just fill in some fields to create a new campaign.</p>
+
 <%= render 'campaign_fields' %>
-<td><%= button_to "Cancel", root_path %></td>
-</tr>
+
+<!--Closing campaign_fields table to put all buttons inline-->
+		<td>
+			<%= button_to "Cancel", root_path %>
+		</td>
+	</tr>
 </table>

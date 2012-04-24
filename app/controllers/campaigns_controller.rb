@@ -64,6 +64,7 @@ class CampaignsController < ApplicationController
 	def clone_campaign
 		begin
 			@existing_campaign = Campaign.find(params[:id])
+			@existing_campaign.name += " (copy)"
 			@campaign = @existing_campaign.clone
 			@existing_planning = @existing_campaign.planning
 			@planning = @existing_planning.clone

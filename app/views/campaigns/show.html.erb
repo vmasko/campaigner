@@ -1,29 +1,5 @@
-<h1>Campaign details</h1>
+<%= render 'campaign_information' %>
 
-<p>Campaign name: <%= @campaign.name %></p>
-<p>Campaign description: <%= @campaign.description %></p>
-<p>Active: <%= @campaign.active %></p>
-<p>Campaign type: <%= @campaign.ctype %></p>
+<%= render 'campaign_planning'%>
 
-<legend>Planning:</legend>
-<% if @planning.nil? %>
-	<p>Planning details were not provided</p>
-<% else %>
-	<table>
-		<tr>
-			<td>Start date: <%= @planning.start_date %></td>
-			<td>Expected revenue: <%= number_to_currency(@planning.expected_revenue, :precision => 1) %></td>
-		</tr>
-		<tr>
-			<td>End date: <%= @planning.end_date %></td>
-			<td>Budgeted cost: <%= number_to_currency(@planning.budgeted_cost, :precision => 1) %></td>
-		</tr>
-		<tr>
-			<td>Num sent: <%= @planning.num_sent %></td>
-			<td>Actual cost: <%= number_to_currency(@planning.actual_cost, :precision => 1) %></td>
-		</tr>
-		<tr>
-			<td>Expected response (%): <%= @planning.expected_response %></td>
-		</tr>
-	</table>
-<% end %>
+<%= render 'campaign_statistics' %>
