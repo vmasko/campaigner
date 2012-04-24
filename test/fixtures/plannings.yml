@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  campaign_id: 1
+  start_date: 2012-04-22
+  end_date: 2012-04-22
+  num_sent: 1
+  expected_response: 9.99
+  expected_revenue: 1
+  budgeted_cost: 1
+  actual_cost: 1
+
+two:
+  campaign_id: 1
+  start_date: 2012-04-22
+  end_date: 2012-04-22
+  num_sent: 1
+  expected_response: 9.99
+  expected_revenue: 1
+  budgeted_cost: 1
+  actual_cost: 1
