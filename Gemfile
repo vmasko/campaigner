@@ -6,7 +6,6 @@ gem 'heroku'
 
 group :development, :test do
 	gem 'sqlite3'
-	gem 'rspec-rails', '~> 1.3'
 end
 
 group :production do

@@ -33,10 +33,6 @@ GEM
     rake (0.8.7)
     rest-client (1.6.7)
       mime-types (>= 1.16)
-    rspec (1.3.2)
-    rspec-rails (1.3.4)
-      rack (>= 1.0.0)
-      rspec (~> 1.3.1)
     rubyzip (0.9.7)
     sqlite3 (1.3.6)
 
@@ -48,5 +44,4 @@ DEPENDENCIES
   pg
   rails (= 2.3.5)
   rake (= 0.8.7)
-  rspec-rails (~> 1.3)
   sqlite3
