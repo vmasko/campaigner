@@ -1,7 +1,7 @@
 <table id="campaign_list">
 	<tr>
 		<thead id="campaign_list_header">
-		<th><%= sortable("name", "Campaign name") %></th>
+		<th>Campaign name</th>
 		<th>Status</th>
 		<th>Start date</th>
 		</thead>
@@ -11,9 +11,6 @@
 				<td>
 					<%= link_to "#{campaign.name}", campaign %>
 					<%= link_to "Edit", edit_campaign_path(campaign.id), :class => "superscript_link" %>
-					<%= link_to "Delete", campaign, :class => "superscript_link",
-																					:method => :delete,
-																					:confirm => "Do you really want to delete “#{campaign.name}”?" %>
 				</td>
 				<td><%= campaign.status %></td>
 				<td><%= campaign.planning.start_date if !campaign.planning.nil? %>

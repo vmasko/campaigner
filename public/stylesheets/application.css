@@ -1,6 +1,7 @@
 body {
 	margin: 0px;
 	padding: 0px;
+	color:
 }
 
 header {
@@ -69,6 +70,7 @@ h1 {
 a {
 	color: #121212;
 }
+
 a:visited {
 	color: #737272;
 }
@@ -97,21 +99,17 @@ legend {
 	padding: 10px 10px 10px 10px;
 	width: 50%;
 	color: white;
-	background-color: #454545;
+	background-color: #246100;
 	border-radius: 10px;
 }
 
 #flash_error {
-	width: 500px;
-	height: 25px;
-	font-size: 20px;
-	background-color: #FFA3A3;
-	color: #5E3131;
-	border: 3px solid #5E3131;
-	margin: 10px auto 10px auto;
-	padding: 5px 5px 5px 5px;
+	margin: 15px auto 15px auto;
+	padding: 10px 10px 10px 10px;
+	width: 50%;
+	color: white;
+	background-color: #BA0000;
 	border-radius: 10px;
-	text-align: center;
 }
 
 #campaign_list td {
@@ -131,9 +129,16 @@ legend {
 	background-color: #193770;
 }
 
-#campaign_list_header a {
-	color: #FFF;
+#campaign_sort {
+	margin-top: 40px;
+	float: right;
+}
+#campaign_sort a {
+	padding: 2px 2px 2px 2px;
+	color: white;
+	background-color: #193770;
 	text-decoration: none;
+	border-radius: 4px;
 }
 
 .inline_buttons {

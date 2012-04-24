@@ -3,6 +3,9 @@
 <h1>Edit campaign</h1>
 <%= render 'campaign_fields' %>
 
-<td><%= button_to "Delete", @campaign, :method => :delete %></td>
+<td><%= button_to "Clone", clone_campaign_path, :method => :get %></td>
+<td><%= button_to "Delete", @campaign, :method => :delete,
+														:confirm => "Do you really want to delete “#{@campaign.name}”?" %></td>
+<td><%= button_to "Cancel", root_path %></td>
 </tr>
 </table>

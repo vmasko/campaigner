@@ -13,7 +13,16 @@ module ApplicationHelper
 	def sortable(column, name = nil)
 		name ||= column.titleize
 		direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
-		sort_direction == "asc" ? arrow_direction = "&darr;" : arrow_direction = "&uarr;"
+		column == sort_column && sort_direction == "asc" ? arrow_direction = "&darr;" : arrow_direction = "&uarr;"
 		link_to "#{name} #{arrow_direction}", :sort => column, :direction => direction
 	end
+
+	def context_button
+		if action_name == "clone_campaign"
+			"Clone"
+		else
+			"Save"
+		end
+	end
+
 end

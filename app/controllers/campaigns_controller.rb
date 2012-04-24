@@ -6,9 +6,14 @@ class CampaignsController < ApplicationController
   end
 
   def show
-		@campaign = Campaign.find(params[:id])
-		@planning = @campaign.planning
-  end
+		begin
+			@campaign = Campaign.find(params[:id])
+			@planning = @campaign.planning
+  	rescue ActiveRecord::RecordNotFound
+			flash[:error] = "Couldn't find campaign with id=#{params[:id]}, sorry."
+			redirect_to root_path
+		end
+	end
 
   def new
 		@campaign = Campaign.new
@@ -51,13 +56,20 @@ class CampaignsController < ApplicationController
 		redirect_to root_path
   end
 
+	def clone_campaign
+		@existing_campaign = Campaign.find(params[:id])
+		@campaign = @existing_campaign.clone
+		@existing_planning = @existing_campaign.planning
+		@planning = @existing_planning.clone
+	end
+
 	private
 
 		def sort_column
-			Campaign.column_names.include?(params[:sort]) ? params[:sort] : "name"
+			Campaign.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
 		end
 
 		def sort_direction
-			%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+			%w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
 		end
 end
