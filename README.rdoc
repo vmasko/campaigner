@@ -1,0 +1,42 @@
+== Campaigner
+Test application for Full Spectrum Systems (http://fss.by).
+
+At GitHub — http://github.com/soupdawgie/campaigner
+In production — http://warm-beach-5078.heroku.com/
+
+So, I started with creating a new gemset in RVM to switch comfortably between Rails 3.2.1 on Ruby 1.9.3 and Rails 2.3.5 (my choice for the test application) on Ruby 1.8.7.
+
+Then, as usual, I created application's frame, initialized Git repository (and created a public one on GitHub), added some patterns to .gitignore (to ignore swap files), initialized bundler to have the ability to manage gems in a convinient way, added necessary gems to the Gemfile.
+
+After all preparations, I took a list of paper and started to think on database schema. I decided to split campaigns and its plannings into two separate tables with :has_one association — otherwise our table with campaigns information would be too cumbersome (and it makes perfect sense — something like «смета» in Russian).
+
+Here we go — rake db:migrate and I have all basic campaign information (such as names, descriptions and statuses) in the first table called Campaigns, and all planning information (such as start dates, end dates and revenues) in the second one called Plannings. As I already mentioned, I have :has_one association between them and dependency to delete plannings of destroyed and currently non-existing campaigns. Also, I have presence validation for name column as it is one must-be-filled field (uniqueness of names was set on the database level).
+
+Also I generated controller called Campaigns and created routes with map.resources for it.
+
+So, I need:
+• “index” action (which at the same time is root of my app) with a view, which iterates over @campaigns variable and puts this data into a table;
+• “show” action to show a particular campaign with a view, which contains a well-formed mock-up to insert campaign data;
+• “new” action (with “create” action to answer the POST verb) with a view, which contains fields for creating a new campaign and its planning (and it's a good idea to put them into partial, I called it “campaign_fields”)
+• “edit” action (with “update” action to answer the PUT verb) with a view, which just renders my “campaign_fields”;
+• “destroy” action, which redirects user to the root_path after destroying a chosen campaign;
+• “clone_campaign” action to copy existing campaigns, view also renders “campaign_fields” partial;
+• some sorting methods;
+
+Because of tables' relationships every time I'm retrieving or sending @campaign data, I need to retrieve or build its @planning data.
+
+• Index. I don't have to say much about that action, except sorting parameters from methods — details about them are below.
+• Show. It's simple too. Here is a rescue for RecordNotFound exception, that redirects user to the index page with flash message about error.
+• New. Application creates @campaign and builds its @planning to have something to work with.
+• Create. Same as new, but with our parameters, POSTed with “Save” button. If saving was successful — redirects to the index page and flashing with cheerful message about it. If not — renders the same page with information about errors (this functionality provides “error_messages” partial)
+• Edit. Nothing special. Finds a @campaign and its @planning by id from params[:id]. Redirects to the index page and throws flash message in case of wrong id, which was sent to the application.
+• Update. Action finds a @campaign and its @planning and updates it with update_attributes method. Here is a boolean statement for a @planning variable, because if campaign doesn't have any @planning info (i.e. it equals nil), Rails can't apply update method to it and throws an error. Success — redirects with flash message, fail — renders the same page with errors info.
+• Destroy. Responds to link or button with :method => :delete on selected campaign and destroys it. Pretty simple.
+• Clone_campaign. This action finds a campaign and planning by id and stores them in @existing_campaign and @existing_planning respectively, then adds “(copy)” string to its name (in case of forgetful user, that didn't changed it) and clones their data into two new variables with Rails built-in method. User clicks “Clone” button (which is action-dependent — “Clone” during “clone_campaign” action and “Save” during “new” and “edit” actions; made with “context_button” method in application_helper) and — voila — variables being processed with existing “create” action and user has the cloned campaign.
+• Sorting. Here I have “sortable” method (in application_helper), which accepts a DB table's column title and string called “name” and then generates a link with that “name” as a title and sets two parametes in it — :sort and :direction. :sort — by which column records are sorted, :direction — in which direction ("asc", "desc"). Direction changes with every click on the generated link. In controller I have two accessor methods to make sure, that any mailcious folks can't process SQL-injection, and to set defaults for the page without any parameters — it's just default index page. Then I'm using these methods as a parameters for :order of @campaigns variable.
+
+As you can see, I used lots of partials to keep my views (and even other partials) clean.
+
+I wouldn't speak much about styling, it is a permanent and very dynamic process. The most unusual thing — table to put all form buttons inline. This table starts in the campaign_fields partial and closes in views (that's how I can have different sets of buttons in every view).
+
+Application works and looks propriately on Ubuntu 11.10 (Mozilla Firefox 11.0, Google Chromium 18.0 and Opera 11.62) and Windows 7 (---).
