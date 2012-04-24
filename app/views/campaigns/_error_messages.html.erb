@@ -1,0 +1,9 @@
+<% if @campaign.errors.any? %>
+		<h2>Form is invalid</h2>
+		<ul>
+			<% @campaign.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+		</ul>
+	<hr>
+<% end %>

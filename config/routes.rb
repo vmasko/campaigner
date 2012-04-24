@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
 	map.clone_campaign 'campaigns/:id/clone_campaign', :controller => "campaigns",
 																										 :action => "clone_campaign",
 																										 :conditions => { :method => :get }
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

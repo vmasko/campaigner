@@ -28,7 +28,6 @@ class CampaignsController < ApplicationController
 			redirect_to root_path
 		else
 			render 'new'
-			flash[:error] = "Sorry, something went wrong."
 		end
   end
 
@@ -50,9 +49,8 @@ class CampaignsController < ApplicationController
 			flash[:success] = "Campaign information was successfully updated."
 			redirect_to root_path
 		else
-			flash[:error] = "Update was unsuccessful."
+			render 'edit'
 		end
-
   end
 
   def destroy
@@ -64,9 +62,11 @@ class CampaignsController < ApplicationController
 	def clone_campaign
 		begin
 			@existing_campaign = Campaign.find(params[:id])
-			@existing_campaign.name += " (copy)"
-			@campaign = @existing_campaign.clone
 			@existing_planning = @existing_campaign.planning
+
+			@existing_campaign.name += " (copy)"
+
+			@campaign = @existing_campaign.clone
 			@planning = @existing_planning.clone
   	rescue ActiveRecord::RecordNotFound
 			flash[:error] = "Couldn't clone campaign with id=#{params[:id]}, sorry."

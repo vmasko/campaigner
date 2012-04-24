@@ -6,17 +6,15 @@
 		<th>Start date</th>
 		</thead>
 	<% @campaigns.each do |campaign| %>
-		<tr>
-			<% if campaign.active? %>	
-				<td>
-					<%= link_to "#{campaign.name}", campaign %>
-					<%= link_to "Edit", edit_campaign_path(campaign.id), :class => "superscript_link" %>
-					<%= link_to "Delete", campaign, :method => :delete, :class => "superscript_link",
-																:confirm => "Do you really want to delete “#{campaign.name}”?"%>
-				</td>
-				<td><%= campaign.status %></td>
-				<td><%= campaign.planning.start_date if !campaign.planning.nil? %>
-			<% end %>
+		<tr>	
+			<td>
+				<%= link_to "#{mark_inactive(campaign)}", campaign %>
+				<%= link_to "Edit", edit_campaign_path(campaign.id), :class => "superscript_link" %>
+				<%= link_to "Delete", campaign, :method => :delete, :class => "superscript_link",
+															:confirm => "Do you really want to delete “#{campaign.name}”?"%>
+			</td>
+				<td class="centered_cols"><%= campaign.status %></td>
+				<td class="centered_cols"><%= campaign.planning.start_date if !campaign.planning.nil? %></td>
 		</tr>
 	<% end %>
 </table>

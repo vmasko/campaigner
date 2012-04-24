@@ -1,7 +1,10 @@
 <legend>Campaign information (* — required information):</legend>
 
-<% form_for @campaign do |f| %>
-	<fieldset class="campaign_info">
+<fieldset class="campaign_info">
+	<% form_for @campaign do |f| %>
+
+		<%= render 'error_messages' %>
+
 		<%= f.label :name, "*Campaign name" %></br>
 		<%= f.text_field :name %></br>
 
@@ -17,10 +20,11 @@
 		<%= f.label :status %>
 		<%= f.select :status, Campaign::CAMPAIGN_STATUSES, 
 								 :prompt => "Please, select campaign status" %></br>
-	</fieldset>
+</fieldset>
 	
 	<%= render 'planning_fields' %>
+	
 	<table class="inline_buttons">
 		<tr>
-	<td><%= f.submit "#{context_button}" %></td>
-<% end %>
+			<td><%= f.submit "#{context_button}" %></td>
+	<% end %>

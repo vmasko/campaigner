@@ -1,44 +1,44 @@
 <legend>Planning:</legend>
 
 <fieldset class="planning_info">
-	<table>
-		<% fields_for @planning do |f| %>
-			<tr>
-				<td>
-					<%= f.label :start_date, "Start date (e.g. #{Date.today.to_s})" %></br>
-					<%= f.text_field :start_date %>
-				</td>
-				<td>
-					<%= f.label :expected_revenue %></br>
-					<%= f.text_field :expected_revenue %>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<%= f.label :end_date, "End date (e.g. #{(Date.today + 14).to_s})" %></br>
-					<%= f.text_field :end_date %>
-				</td>
-				<td>
-					<%= f.label :budgeted_cost %></br>
-					<%= f.text_field :budgeted_cost %>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<%= f.label :num_sent %></br>
-					<%= f.text_field :num_sent %>
-				</td>
-				<td>
-					<%= f.label :actual_cost %></br>
-					<%= f.text_field :actual_cost %>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<%= f.label :expected_response, "Expected response (%)" %></br>
-					<%= f.text_field :expected_response %>
-				</td>
-			</tr>
-		<% end %>
-	</table>
+	<% fields_for @planning do |f| %>
+		<table>
+				<tr>
+					<td>
+						<%= f.label :start_date, "Start date (e.g. #{Date.today.to_s})" %></br>
+						<%= f.text_field :start_date %>
+					</td>
+					<td>
+						<%= f.label :expected_revenue %></br>
+						<%= f.text_field :expected_revenue %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.label :end_date, "End date (e.g. #{(Date.today + 14).to_s})" %></br>
+						<%= f.text_field :end_date %>
+					</td>
+					<td>
+						<%= f.label :budgeted_cost %></br>
+						<%= f.text_field :budgeted_cost %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.label :num_sent %></br>
+						<%= f.text_field :num_sent %>
+					</td>
+					<td>
+						<%= f.label :actual_cost %></br>
+						<%= f.text_field :actual_cost %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.label :expected_response, "Expected response (%)" %></br>
+						<%= f.text_field :expected_response %>
+					</td>
+				</tr>
+		</table>
+	<% end %>
 </fieldset>

@@ -25,4 +25,15 @@ module ApplicationHelper
 		end
 	end
 
+	def active_check
+		if @campaign.active
+			"✔"
+		else
+			"×"
+		end
+	end
+
+	def mark_inactive(campaign)
+		campaign.active? == true ? "#{campaign.name}" : "#{campaign.name} | inactive"
+	end
 end
