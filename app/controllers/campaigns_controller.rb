@@ -33,9 +33,14 @@ class CampaignsController < ApplicationController
   end
 
   def edit
-		@campaign = Campaign.find(params[:id])
-		@planning = @campaign.planning
-  end
+		begin
+			@campaign = Campaign.find(params[:id])
+			@planning = @campaign.planning
+  	rescue ActiveRecord::RecordNotFound
+			flash[:error] = "Couldn't edit campaign with id=#{params[:id]}, sorry."
+			redirect_to root_path
+		end  
+	end
 
   def update
 		@campaign = Campaign.find(params[:id])
@@ -57,10 +62,15 @@ class CampaignsController < ApplicationController
   end
 
 	def clone_campaign
-		@existing_campaign = Campaign.find(params[:id])
-		@campaign = @existing_campaign.clone
-		@existing_planning = @existing_campaign.planning
-		@planning = @existing_planning.clone
+		begin
+			@existing_campaign = Campaign.find(params[:id])
+			@campaign = @existing_campaign.clone
+			@existing_planning = @existing_campaign.planning
+			@planning = @existing_planning.clone
+  	rescue ActiveRecord::RecordNotFound
+			flash[:error] = "Couldn't clone campaign with id=#{params[:id]}, sorry."
+			redirect_to root_path
+		end
 	end
 
 	private
