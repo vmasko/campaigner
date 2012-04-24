@@ -11,7 +11,7 @@
 		<%= f.label :active %>
 		<%= f.check_box :active %></br>
 
-		<%= f.label :ctype %>
+		<%= f.label :ctype, "Type" %>
 		<%= f.select :ctype, Campaign::CAMPAIGN_TYPES, :prompt => "Please, select campaign type" %>
 
 		<%= f.label :status %>
