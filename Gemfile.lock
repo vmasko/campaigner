@@ -11,6 +11,18 @@ GEM
     activeresource (2.3.5)
       activesupport (= 2.3.5)
     activesupport (2.3.5)
+    addressable (2.2.7)
+    heroku (2.24.1)
+      launchy (>= 0.3.2)
+      netrc (~> 0.7.1)
+      rest-client (~> 1.6.1)
+      rubyzip
+    hoe (3.0.3)
+      rake (~> 0.8)
+    launchy (2.1.0)
+      addressable (~> 2.2.6)
+    mime-types (1.18)
+    netrc (0.7.1)
     pg (0.13.2)
     rack (1.0.1)
     rails (2.3.5)
@@ -21,18 +33,25 @@ GEM
       activesupport (= 2.3.5)
       rake (>= 0.8.3)
     rake (0.8.7)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec (1.3.2)
     rspec-rails (1.3.4)
       rack (>= 1.0.0)
       rspec (~> 1.3.1)
+    rubyzip (0.9.7)
     sqlite3 (1.3.6)
+    test-unit (1.2.3)
+      hoe (>= 1.5.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  heroku
   pg
   rails (= 2.3.5)
   rake (= 0.8.7)
   rspec-rails (~> 1.3)
   sqlite3
+  test-unit (= 1.2.3)
