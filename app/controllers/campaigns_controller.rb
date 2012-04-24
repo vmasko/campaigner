@@ -1,9 +1,13 @@
 class CampaignsController < ApplicationController
+	helper_method :sort_column, :sort_direction
+
   def index
-		@campaigns = Campaign.all
+		@campaigns = Campaign.all(:order => sort_column + " " + sort_direction)
   end
 
   def show
+		@campaign = Campaign.find(params[:id])
+		@planning = @campaign.planning
   end
 
   def new
@@ -42,6 +46,18 @@ class CampaignsController < ApplicationController
   end
 
   def destroy
+		@campaign = Campaign.find(params[:id]).destroy
+		flash[:success] = "Campaign was successfully deleted!"
+		redirect_to root_path
   end
 
+	private
+
+		def sort_column
+			Campaign.column_names.include?(params[:sort]) ? params[:sort] : "name"
+		end
+
+		def sort_direction
+			%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+		end
 end

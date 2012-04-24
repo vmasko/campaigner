@@ -1,6 +1,6 @@
 <legend>Planning:</legend>
 <fieldset class="planning_info">
-	<table width=100%>
+	<table>
 		<% fields_for @planning do |f| %>
 			<tr>
 				<td>
@@ -19,7 +19,8 @@
 				</td>
 				<td>
 					<%= f.label :budgeted_cost %></br>
-					<%= f.text_field :budgeted_cost %></td>
+					<%= f.text_field :budgeted_cost %>
+				</td>
 			</tr>
 			<tr>
 				<td>

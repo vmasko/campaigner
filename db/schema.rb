@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(:version => 20120422120446) do
   create_table "campaigns", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "type"
+    t.string   "ctype"
     t.string   "status"
     t.boolean  "active",      :default => true
     t.datetime "created_at"

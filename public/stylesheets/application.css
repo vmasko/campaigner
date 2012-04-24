@@ -31,6 +31,10 @@ content {
 	padding: 10px 10px 10px 10px;
 }
 
+.app_header:visited {
+	color: white;
+}
+
 input {
 	margin-bottom: 10px;
 }
@@ -47,8 +51,26 @@ textarea {
 fieldset {
 	border: none;
 }
+
+table {
+	width: 100%;
+}
+
 .campaign_info {
 	margin-bottom: 40px;
+}
+
+h1 {
+	font-weight: normal;
+	font-size: 30px;
+	color: #102347;
+}
+
+a {
+	color: #121212;
+}
+a:visited {
+	color: #737272;
 }
 
 legend {
@@ -60,18 +82,14 @@ legend {
 	border-radius: 5px;
 }
 
-.campaign_submit {
-	display: inline;
-}
-.haha {
-	display: inline;
-}
-
-.edit_link {
-	padding-left: 5px;
+.superscript_link {
 	font-size: xx-small;
 	vertical-align: top;
 	text-decoration: none;
+}
+
+.superscript_link:visited {
+	color: #121212;
 }
 
 #flash_success {
@@ -80,7 +98,6 @@ legend {
 	width: 50%;
 	color: white;
 	background-color: #454545;
-	border: 2px solid #FFF;
 	border-radius: 10px;
 }
 
@@ -112,4 +129,13 @@ legend {
 #campaign_list_header {
 	color: #FFF;
 	background-color: #193770;
+}
+
+#campaign_list_header a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+.inline_buttons {
+	width: 10%;
 }

@@ -11,8 +11,8 @@
 		<%= f.label :active %>
 		<%= f.check_box :active %></br>
 
-		<%= f.label :type %>
-		<%= f.select :type, Campaign::CAMPAIGN_TYPES, :prompt => "Please, select campaign type" %>
+		<%= f.label :ctype %>
+		<%= f.select :ctype, Campaign::CAMPAIGN_TYPES, :prompt => "Please, select campaign type" %>
 
 		<%= f.label :status %>
 		<%= f.select :status, Campaign::CAMPAIGN_STATUSES, 
@@ -20,7 +20,8 @@
 	</fieldset>
 	
 	<%= render 'planning_fields' %>
-
-	<%= f.submit "Save" %>
+	<table class="inline_buttons">
+		<tr>
+	<td><%= f.submit "Save" %></td>
 <% end %>
-<%= button_to "Cancel", root_path %>
+	<td><%= button_to "Cancel", root_path %></td>
