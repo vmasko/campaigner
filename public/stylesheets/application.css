@@ -188,3 +188,11 @@ legend {
 	width: 10%;
 	margin-bottom: 20px;
 }
+
+.inline_information .button {
+	float: right;
+}
+
+.pagination {
+	margin-top: 10px;
+}

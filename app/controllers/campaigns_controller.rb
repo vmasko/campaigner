@@ -1,14 +1,20 @@
 class CampaignsController < ApplicationController
+
 	helper_method :sort_column, :sort_direction
+	
+	require 'will_paginate' 
 
   def index
-		@campaigns = Campaign.all(:order => sort_column + " " + sort_direction)
+		@campaigns = Campaign.paginate(:page => params[:page],
+																	 :per_page => 10,
+																	 :order => sort_column + " " + sort_direction)
   end
 
   def show
 		begin
 			@campaign = Campaign.find(params[:id])
 			@planning = @campaign.planning
+			@owner = @campaign.people.find_by_role("Owner")
   	rescue ActiveRecord::RecordNotFound
 			flash[:error] = "Couldn't find campaign with id=#{params[:id]}, sorry."
 			redirect_to root_path
@@ -25,7 +31,7 @@ class CampaignsController < ApplicationController
 		@planning = @campaign.build_planning(params[:planning])
 		if @campaign.save
 			flash[:success] = "New campaign was successfully created!"
-			redirect_to root_path
+			redirect_to new_campaign_person_path(@campaign.id) if action_name != "edit"
 		else
 			render 'new'
 		end

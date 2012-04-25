@@ -1,0 +1,27 @@
+<% @title = "Add campaign participant" %>
+
+<h1>Add campaign participant</h1>
+
+<p>Please specify participant's name and role.</p>
+<fieldset>
+<% form_for (@person, :url => campaign_people_path) do |f| %>
+
+	<%= render 'error_messages'%>
+
+	<%= f.label :name %></br>
+	<%= f.text_field :name %></br>
+
+	<%= f.label :role %></br>
+	<%= f.select :role, Person::PERSON_ROLES %></br>
+</fieldset>
+	<table class="inline_buttons">
+		<tr>
+			<td>
+				<%= f.submit "Add" %>
+			</td>
+<% end %>
+			<td>
+				<%= button_to "Cancel", @campaign, :method => :get %>
+			</td>
+		<tr>
+	</table>

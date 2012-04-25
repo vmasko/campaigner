@@ -1,6 +1,7 @@
 class Campaign < ActiveRecord::Base
 
 	has_one :planning, :dependent => :destroy
+	has_many :people, :dependent => :destroy
 	accepts_nested_attributes_for :planning
 
 	CAMPAIGN_STATUSES = ["Planned", "Ongoing", "Ended"]

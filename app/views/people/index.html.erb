@@ -1,0 +1,23 @@
+<% @title = "Campaign participants" %>
+
+<h1>Campaign participants</h1>
+
+<%= button_to "Back to campaign", @campaign, :method => :get %>
+
+<% @people.each do |person| %>
+	<table class="inline_information">
+		<tr>
+			<td>
+				<b>Name:</b> <%= person.name %> | 
+				<b>Role:</b> <%= person.role %>
+			</td>
+			<td class="button">
+				<%= button_to "Delete", campaign_person_path(params[:campaign_id], person.id),
+																:method => :delete,
+																:confirm => "Do you really want to delete “#{person.name}”?" %>
+			</td>
+		</tr>
+	</table>
+<% end %>
+
+<%= will_paginate @people %>
