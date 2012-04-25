@@ -9,7 +9,7 @@ So, I started with creating a new gemset in RVM to switch comfortably between Ra
 
 Then, as usual, I created application's frame, initialized Git repository (and created a public one on GitHub), added some patterns to .gitignore (to ignore swap files), initialized bundler to have the ability to manage gems in a convinient way, added necessary gems to the Gemfile.
 
-After all preparations, I took a list of paper and started to think on database schema. I decided to split campaigns and its plannings into two separate tables with has_one association — otherwise our table with campaigns information would be too cumbersome (and it makes perfect sense — something like «смета» in Russian).
+After all preparations, I took a list of paper and started to think on database schema. I decided to split campaigns and its plannings into two separate tables with has_one association — otherwise my table with campaigns information would be too cumbersome (and it makes perfect sense — something like «смета» in Russian).
 
 Here we go — rake db:migrate and I have all basic campaign information (such as names, descriptions and statuses) in the first table called Campaigns, and all planning information (such as start dates, end dates and revenues) in the second one called Plannings. As I already mentioned, I have has_one association between them and dependency to delete plannings of destroyed and currently non-existing campaigns. Also, I have presence validation for name column as it is one must-be-filled field (uniqueness of names was set on the database level) and inclusion validations for :type and :status dropdowns (to prevent any nasty guys from submitting another values to them).
 
@@ -39,7 +39,7 @@ Because of tables' relationships every time I'm retrieving or sending @campaign 
 
 • New. Application creates @campaign and builds its @planning to have something to work with.
 
-• Create. Same as new, but with our parameters, POSTed with “Save” button. If saving was successful — redirects to the index page and flashing with cheerful message about it. If not — renders the same page with information about errors (this functionality provides “error_messages” partial)
+• Create. Same as new, but with parameters, POSTed by “Save” button. If saving was successful — redirects to the index page and flashing with cheerful message about it. If not — renders the same page with information about errors (this functionality provides “error_messages” partial)
 
 • Edit. Nothing special. Finds a @campaign and its @planning by id from params[:id]. Redirects to the index page and throws flash message in case of wrong id, which was sent to the application (rescue exception).
 
