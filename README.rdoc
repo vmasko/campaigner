@@ -63,4 +63,36 @@ Application matches the provided spec, but of course there is still many things 
 
 Application works and looks properly on Ubuntu 11.10 (Firefox 11.0, Chromium 18.0 and Opera 11.62) and Windows 7 (Firefox 11.0, Chrome 18.0, Opera 11.62).
 
+Application summary:
+
+• Ruby 1.8.7 patch level 357, Rails 2.3.5.
+
+• Developed on Ubuntu 11.10 (Gedit + Terminal + Firefox with Firebug).
+
+• Tested on Ubuntu 11.10 (Firefox 11.0, Chromium 18.0 and Opera 11.62) and Windows 7 (Firefox 11.0, Chrome 18.0, Opera 11.62).
+
+• 3 database tables with one-to-one and one-to-many relationships (development — SQLite 3, production — PostgreSQL).
+
+• Routes: total — 16, campaigns — 7, campaign_people — 7 (nested routes), one root and one for clone_campaign action.
+
+• 3 controllers, 3 models, 3 migrations, 4 additional gems, 8 views, 9 partials.
+
+• 15 controller methods, 5 helper methods.
+
+• LOC: total — 181, controllers — 121, helpers — 37, models — 23.
+
+Spent time:
+
+• 30 minutes: database planning and basic preparations (creating new gemset, generating app's frame, initializing bundler, initializing git local and public repositories).
+
+• 1-1,5 hours: markup and CSS writing.
+
+• 3 hours: all campaign interactions.
+
+• 2 hours: all people interactions.
+
+• 1 hour: testing.
+
+Time spent on realization of all app's aspects is a bit hard to count, so it's approximate statistics. For example, as I mentioned, markup and CSS code writing was almost permanent process, as well as application testing (with making app improvements and according corrections in the code) and, generally, writing all app's code. In fact, I had spent something about 20-25 hours on app completion. I needed to find out differencies between Rails 2 and Rails 3 (and there weren't lots of 'em) and dealed with different errors/exceptions, which were unknown to me (and, of course, browsed literally tons of information on different forums/blogs to fix some of them — for example, my campaigns controller was throwing the “NoMethodError” exception after replacing "Campaign.all" with "Campaign.paginate" and according parameters — I tried to make will_paginate gem work for something about an hour).
+
 Thanks!
